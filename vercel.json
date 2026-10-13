@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "gateway": {
+      "root": "gateway",
+      "framework": "hono"
+    },
+    "consumet": {
+      "root": "services/consumet",
+      "framework": "hono"
+    },
+    "web": {
+      "root": "web",
+      "framework": "vite"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "web"
+      }
+    }
+  ]
+}
